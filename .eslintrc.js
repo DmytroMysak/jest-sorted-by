@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     '@netly/eslint-config-base',
   ],
+  ignorePatterns: ['dist/**', '*d.ts'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',

@@ -1,0 +1,18 @@
+{
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "commitizen": {
+        "path": "./node_modules/cz-conventional-changelog"
+      }
+    }
+  },
+  "github": {
+    "release": true
+  },
+  "npm": {
+    "publish": true
+  },
+  "git": {
+    "requireBranch": "master"
+  }
+}

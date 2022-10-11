@@ -78,18 +78,22 @@ describe('toBeSortedBy', () => {
         'Expected Array(3) to be sorted by a missing key, missing, in ascending order'
       );
     });
+
     it('pass - { key: "missingKey", strict: "false" }: passes in non-strict mode as all values are undefined', () => {
       expect(
         toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).pass
       ).toBe(true);
     });
-    it('fail - { key: "missingKey", strict: "false" }: message provided for the .not case specifies the missing key', () => {
-      expect(
-        toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).message()
-      ).toBe(
-        'Expected Array(3) to not be sorted by missing in ascending order'
-      );
-    });
+
+    it(
+      'fail - { key: "missingKey", strict: "false" }: message provided for the .not case specifies the missing key', 
+      () => {
+        expect(
+          toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).message()
+        ).toBe(
+          'Expected Array(3) to not be sorted by missing in ascending order'
+        );
+      });
   });
 
   describe('non-iterables', () => {
