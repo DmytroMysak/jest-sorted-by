@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export {};
 
 interface Options {
@@ -8,7 +9,7 @@ interface Options {
 }
 
 interface CustomMatchers<R = unknown> {
-  toBeSortedBy<T extends []>(received: T, options: Options): R;
+  toBeSortedBy(options?: Options): R;
 }
 
 declare global {

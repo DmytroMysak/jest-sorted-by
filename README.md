@@ -5,8 +5,9 @@ Inspired by jest-sorted. This packages extends jest.expect with 1 custom matcher
 Examples
 
 ```js
-expect([{ id: 1 }, { id: 2 }, { id: 3 }]).toBeSortedBy('id');
-expect([{ count: '10' }, { count: '5' }]).toBeSortedBy('count', {
+expect([{ id: 1 }, { id: 2 }, { id: 3 }]).toBeSortedBy({ key: 'id' });
+expect([{ count: '10' }, { count: '5' }]).toBeSortedBy({
+  key: 'count',
   descending: true,
   coerce: true,
 });
@@ -30,13 +31,13 @@ yarn add -D @netly/jest-sorted-by
 
 ### Jest >v24
 
-Add `jest-sorted-by` to your Jest `setupFilesAfterEnv` configuration. [See for help](https://jestjs.io/docs/en/configuration.html#setupfilesafterenv-array)
+Add `@netly/jest-sorted-by` to your Jest `setupFilesAfterEnv` configuration. [See for help](https://jestjs.io/docs/en/configuration.html#setupfilesafterenv-array)
 
 For example, add the following to your `package.json` at the root level. See [configuring jest](https://jestjs.io/docs/en/configuration) for more info.
 
 ```json
 "jest": {
-  "setupFilesAfterEnv": ["jest-sorted-by"]
+  "setupFilesAfterEnv": ["@netly/jest-sorted-by"]
 }
 ```
 
@@ -47,7 +48,7 @@ For example:
 
 ```js
 // ./testSetup.js
-require('jest-sorted-by');
+require('@netly/jest-sorted-by');
 require('jest-chain');
 require('any other test framework libraries you are using');
 ```
