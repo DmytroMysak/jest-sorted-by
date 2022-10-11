@@ -1,12 +1,14 @@
+export {};
+
 interface Options {
   descending?: boolean;
   strict?: boolean;
   key?: string;
-  comparator: Function;
+  comparator?: (a: any, b: any) => number;
 }
 
 interface CustomMatchers<R = unknown> {
-  toBeSortedBy<T extends []>(array: T, options: Options): R;
+  toBeSortedBy<T extends []>(received: T, options: Options): R;
 }
 
 declare global {

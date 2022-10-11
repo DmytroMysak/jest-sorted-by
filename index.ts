@@ -11,7 +11,8 @@ function defaultComparator(a: any, b: any) {
   return 0;
 }
 
-export default function toBeSortedBy<T extends []>(array: T, options: Options = {}): jest.CustomMatcherResult {
+export default function toBeSortedBy<T extends []>(received: T, options: Options = {}): jest.CustomMatcherResult {
+  const array = received;
   if (!Array.isArray(array)) {
     return {
       pass: false,
