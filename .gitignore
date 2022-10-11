@@ -43,6 +43,7 @@ packages/*/*/*
 packages/*/package-lock.json
 packages/*/yarn.lock
 *.pem
+.npmrc
 
 # dotenv environment variables file
 .env
