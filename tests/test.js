@@ -24,9 +24,7 @@ describe('toBeSortedBy', () => {
       expect(toBeSortedBy([1, 2, 1]).pass).toBe(false);
     });
     it('pass: array of ascending numbers message provided for .not case', () => {
-      expect(toBeSortedBy([1, 2, 3]).message()).toBe(
-        'Expected [1,2,3] to not be sorted in ascending order'
-      );
+      expect(toBeSortedBy([1, 2, 3]).message()).toBe('Expected [1,2,3] to not be sorted in ascending order');
     });
     it('fail: array of ascending numbers message provided', () => {
       expect(toBeSortedBy([3, 2, 1]).message()).toBe(
@@ -80,28 +78,21 @@ describe('toBeSortedBy', () => {
     });
 
     it('pass - { key: "missingKey", strict: "false" }: passes in non-strict mode as all values are undefined', () => {
-      expect(
-        toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).pass
-      ).toBe(true);
+      expect(toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).pass).toBe(true);
     });
 
-    it(
-      'fail - { key: "missingKey", strict: "false" }: message provided for the .not case specifies the missing key', 
-      () => {
-        expect(
-          toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).message()
-        ).toBe(
-          'Expected Array(3) to not be sorted by missing in ascending order'
-        );
-      });
+    // eslint-disable-next-line max-len
+    it('fail - { key: "missingKey", strict: "false" }: message provided for the .not case specifies the missing key', () => {
+      expect(toBeSortedBy(ascendingObjs, { key: 'missing', strict: false }).message()).toBe(
+        'Expected Array(3) to not be sorted by missing in ascending order'
+      );
+    });
   });
 
   describe('non-iterables', () => {
     it('fail: all non-iterables are considered unsorted', () => {
       expect(toBeSortedBy(1).pass).toBe(false);
-      expect(toBeSortedBy(1).message()).toBe(
-        `1 is not iterable and cannot be sorted`
-      );
+      expect(toBeSortedBy(1).message()).toBe(`1 is not iterable and cannot be sorted`);
     });
   });
 
@@ -124,9 +115,7 @@ describe('toBeSortedBy', () => {
       expect(toBeSortedBy(descendingObjs, { key: 'num' }).pass).toBe(false);
     });
     it('options are passed to toBeSortedBy', () => {
-      expect(
-        toBeSortedBy(ascendingObjs, { key: 'num', descending: true }).pass
-      ).toBe(false);
+      expect(toBeSortedBy(ascendingObjs, { key: 'num', descending: true }).pass).toBe(false);
     });
   });
 
@@ -147,17 +136,11 @@ describe('toBeSortedBy', () => {
     });
     it('fail - for sorted with compare function but descending', () => {
       const sorted = ['a', 'bb', 'aa.a'].sort(compare);
-      expect(toBeSortedBy(sorted, { compare, descending: true }).pass).toBe(
-        false
-      );
+      expect(toBeSortedBy(sorted, { compare, descending: true }).pass).toBe(false);
     });
     it('pass - for descending sorted with compare function', () => {
-      const descSorted = ['a', 'ba', 'a.b.c', 'aa.a'].sort(
-        (a, b) => -compare(a, b)
-      );
-      expect(toBeSortedBy(descSorted, { descending: true, compare }).pass).toBe(
-        true
-      );
+      const descSorted = ['a', 'ba', 'a.b.c', 'aa.a'].sort((a, b) => -compare(a, b));
+      expect(toBeSortedBy(descSorted, { descending: true, compare }).pass).toBe(true);
     });
   });
 });
